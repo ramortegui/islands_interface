@@ -19,7 +19,7 @@ defmodule IslandsInterface.Mixfile do
   def application do
     [
       mod: {IslandsInterface.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :islands_engine]
     ]
   end
 
@@ -37,7 +37,8 @@ defmodule IslandsInterface.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:islands_engine, path: "../islands_engine"}
     ]
   end
 end
