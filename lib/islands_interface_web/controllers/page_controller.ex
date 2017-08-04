@@ -6,7 +6,8 @@ defmodule IslandsInterfaceWeb.PageController do
   end
 
   def test(conn, %{"name" => name }) do
-    {:ok,_pid} = IslandsEngine.Game.start_link(name)
+    {:ok, _pid} = Supervisor.start_child(:game_supervisor, [name])
+
     conn
     |> put_flash(:info, "You entered the name "<>name)
     |> render("index.html")
